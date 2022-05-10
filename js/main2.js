@@ -21,15 +21,6 @@ class TicTacToe{
     return this._currentPlayer
   }
 
-  place(i){
-    const value = this._board[i]
-    if(value) return false;
-    this._board[i] = this._currentPlayer
-    this._currentPlayer = this._currentPlayer === 'X' ? 'O' : 'X'
-    this.render()
-    return true
-  }
-
   get winner(){
     for(const indexes of TicTacToe.WINNING_INDEXES){
     const first = this._board[indexes[0]]
@@ -43,6 +34,17 @@ class TicTacToe{
     }
     return undefined
   }
+
+  place(i){
+    const value = this._board[i]
+    if(value) return false;
+    this._board[i] = this._currentPlayer
+    this._currentPlayer = this._currentPlayer === 'X' ? 'O' : 'X'
+    this.render()
+    return true
+  }
+
+ 
 
   render(){
 
